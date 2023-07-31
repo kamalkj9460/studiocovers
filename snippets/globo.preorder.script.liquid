@@ -2,7 +2,7 @@
 {%- assign files_url  = 'product-1.png' | file_img_url: '50x' | split: 'product-1_50x.png' -%}
 {% assign timezone_offset_1 = "now" | date: "%z" | slice: 0, 3 %}
 {% assign timezone_offset_2 = "now" | date: "%z" | slice: 3, 2 %}
-<script type="text/javascript">
+<script type="lazyload_int">
   window.Globo      = window.Globo || {};
   Globo.moneyFormat = "{{ shop.money_format | replace: '"', "'" }}";
   Globo.shopOrigin  = "{{ shop.permanent_domain }}";
@@ -70,9 +70,9 @@
 </script>
 {% render 'globo.preorder.template' %}
 
-<script src="{{ 'globo.preorder.data.js' | asset_url }}" type="text/javascript" defer></script>
-<script src="{{ 'globo.preorder.js' | asset_url }}" type="text/javascript" defer></script>
-<script type="text/javascript">
+<script type="lazyload_int" data-src="{{ 'globo.preorder.data.js' | asset_url }}"></script>
+<script type="lazyload_int" data-src="{{ 'globo.preorder.js' | asset_url }}"></script>
+<script type="lazyload_int">
   var globoPreorderShowMultipleCurrencies = {% if settings.show_multiple_currencies %}true{% else %}false{% endif %};
   var globoPreorderCartType    = {{settings.cart_type | json}};
   var globoPreorderRegexCount  = /{% raw %}"{{ count }}|count|{{count}}"{% endraw %}/g;
@@ -97,4 +97,4 @@
     }
   }((window.jQuery||window.$)))
 </script>
-{{ 'globo.preorder.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" data-href="{{ 'globo.preorder.css' | asset_url }}">

@@ -69,7 +69,8 @@ quickshop: <boolean>
                 {% endif %}
                   <div class="image__container">
                     <img id="{{ media.id }}"
-                        class="lazyload lazyload--fade-in"
+                        class="lazyloaded"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad"
                         alt="{{ media.alt | escape }}"
                         data-sizes="auto"
                         data-image-id="{{ product.images[forloop.index0].id }}"
@@ -84,7 +85,6 @@ quickshop: <boolean>
                         data-aspectratio="{{ media.width }}/{{ media.height }}"
                         height="{{ media.height }}"
                         width="{{ media.width }}"
-                        srcset="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='{{ media.width }}'%20height='{{ media.height }}'></svg>"
                         tabindex="-1">
                   </div>
                 {% if section.settings.enable_product_lightbox and product.images.size > 0 %}
@@ -133,7 +133,7 @@ quickshop: <boolean>
 
         {% for media in product.media %}
           <div class="product-gallery__thumbnail" tabindex="0">
-            <img src="{{ media | img_url: '300x' }}" alt="{{ media.alt | escape }}">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ media | img_url: '300x' }}" alt="{{ media.alt | escape }}">
 
             {% comment %} Add media badge depending on media type {% endcomment %}
             {% if media.media_type contains 'video' %}

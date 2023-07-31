@@ -1,4 +1,4 @@
-<script>
+<script type="lazyload_int">
         window.zoorixCartData = {
           currency: "{{ cart.currency.iso_code }}",
           currency_symbol: "{{ cart.currency.symbol }}",
@@ -30,6 +30,6 @@
 </script>
 
 {% if content_for_header contains 'zoorix.com' %}
-<script async src="https://public.zoorix.com/shops/b469d93f-7d10-45b9-a634-98a56ffc7d95/zoorix.js"></script>
+<script type="lazyload_int" data-src="https://public.zoorix.com/shops/b469d93f-7d10-45b9-a634-98a56ffc7d95/zoorix.js"></script>
 {% endif %}
 

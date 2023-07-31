@@ -1,4 +1,4 @@
-<script>
+<script type="lazyload_int">
   window.shopifyMultiCurrencies = [];
   {% for currency in shop.enabled_currencies %}
       window.shopifyMultiCurrencies.push('{{ currency.iso_code }}');
@@ -6,5 +6,5 @@
   window.shopFormat = {{ shop.money_format | json }};
 </script>
 {% if content_for_header contains 'plusbooster.com' %}
-<script src="https://cdnv2.plusbooster.com/bundle.js{{ content_for_header | split: 'plusbooster.com\/start.js' | last | split: '"' | first | replace: '\u0026' : '&' | replace: '\/' : '/' }}" async></script>{% endif %}
-<link type="text/css" rel="stylesheet" href={{ 'pb_custom.css' | asset_url }} async/>
+<script type="lazyload_int" data-src="https://cdnv2.plusbooster.com/bundle.js{{ content_for_header | split: 'plusbooster.com\/start.js' | last | split: '"' | first | replace: '\u0026' : '&' | replace: '\/' : '/' }}" async></script>{% endif %}
+<link type="text/css" rel="stylesheet" data-href={{ 'pb_custom.css' | asset_url }} async/>

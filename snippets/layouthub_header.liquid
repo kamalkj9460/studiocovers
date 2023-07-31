@@ -11,9 +11,9 @@ This snippet auto generate by LayoutHub. Please DO NOT modify it
 {%- unless request.path contains 'apps/layouthub' -%}
 	{%- if shop.metafields.layouthub  -%}
 		{%- if shop.metafields.layouthub.fonts -%}
-			{{- shop.metafields.layouthub.fonts -}}
+			{{- shop.metafields.layouthub.fonts | replace : ' href="' , ' data-href="' -}}
 		{%- endif -%}
-		<link rel="stylesheet" type="text/css" href="data:text/css;base64,{{shop.metafields.layouthub.theme}}" media="all">
+		<link rel="stylesheet" type="text/css" data-href="data:text/css;base64,{{shop.metafields.layouthub.theme}}" media="all">
 		{%- if shop.metafields.layouthub.anti_copy -%}
 			{{ shop.metafields.layouthub.anti_copy }}
 		{%- endif -%}
