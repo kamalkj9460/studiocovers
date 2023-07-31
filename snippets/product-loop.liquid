@@ -1,0 +1,74 @@
+{% assign product_found = false %}
+{% assign skip = false %}
+{% assign collection_group = products | map: 'id' %}
+{% assign collection_group_thumb = collection_group | append : 'thumb' %}
+{% assign collection_group_mobile = collection_group | append : 'mobile' %}
+
+{% capture new_row %}
+  <br class="clear product_clear" />
+{% endcapture %}
+
+{% assign forLimit = limit %}
+
+{% for product in products limit: limit %}
+  {% if product.id == skip_product.id  %}
+    {% assign forLimit = limit | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+{% unless template contains 'product' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {% for product in products limit: limit %}
+          {
+            "@type": "ListItem",
+            "position": "{{ forloop.index | json }}",
+            "url": "{{ shop.url }}{{ product.url }}",
+            "name": "{{ product.title | escape }}"
+          } {%- unless forloop.last -%},{%- endunless -%}
+        {% endfor %}
+      ]
+    }
+  </script>
+{% endunless %}
+
+<div class="products">
+
+  {% for product in products limit: forLimit %}
+
+      {% capture thumbnail_view %}
+        {% if products_per_row == 2 %}
+          {% cycle collection_group_thumb: 'alpha', 'omega' %}
+        {% elsif products_per_row == 3 %}
+          {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
+        {% elsif products_per_row == 4 %}
+          {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
+        {% endif %}
+      {% endcapture %}
+
+      {% capture mobile_thumbnail_view %}
+        {% cycle collection_group_mobile: 'even', 'odd' %}
+      {% endcapture %}
+
+      {% if product.id != skip_product.id %}
+        {% render 'product-thumbnail',
+                product: product,
+                products_per_row: products_per_row,
+                thumbnail_view: thumbnail_view,
+                mobile_thumbnail_view: mobile_thumbnail_view,
+                sidebar: sidebar
+        %}
+        {% if products_per_row == 2 %}
+          {% cycle collection_group: '', new_row %}
+        {% elsif products_per_row == 3 %}
+          {% cycle collection_group: '', '', new_row %}
+        {% elsif products_per_row == 4 %}
+          {% cycle collection_group: '', '', '', new_row %}
+        {% endif %}
+      {% endif %}
+
+  {% endfor %}
+</div>

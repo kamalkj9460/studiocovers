@@ -1,0 +1,97 @@
+{% if from_header %}
+  {% if section.settings.twitter_link_show and settings.twitter_link != '' %}
+    <li class="twitter"><a href="{{ settings.twitter_link }}" title="{{ shop.name }} on Twitter" rel="me" target="_blank"><span class="icon-twitter"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.facebook_link_show and settings.facebook_link != '' %}
+    <li class="facebook"><a href="{{ settings.facebook_link }}" title="{{ shop.name }} on Facebook" rel="me" target="_blank"><span class="icon-facebook"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.youtube_link_show and settings.youtube_link != '' %}
+    <li class="youtube"><a href="{{ settings.youtube_link }}" title="{{ shop.name }} on YouTube" rel="me" target="_blank"><span class="icon-youtube"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.vimeo_link_show and settings.vimeo_link != '' %}
+    <li class="vimeo"><a href="{{ settings.vimeo_link }}" title="{{ shop.name }} on Vimeo" rel="me" target="_blank"><span class="icon-vimeo"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.pinterest_link_show and settings.pinterest_link != '' %}
+    <li class="pinterest"><a href="{{ settings.pinterest_link }}" title="{{ shop.name }} on Pinterest" rel="me" target="_blank"><span class="icon-pinterest"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.tumblr_link_show and settings.tumblr_link != '' %}
+    <li class="tumblr"><a href="{{ settings.tumblr_link }}" title="{{ shop.name }} on Tumblr" rel="me" target="_blank"><span class="icon-tumblr"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.linkedin_link_show and settings.linkedin_link != '' %}
+    <li class="linkedin"><a href="{{ settings.linkedin_link }}" title="{{ shop.name }} on LinkedIn" rel="me" target="_blank"><span class="icon-linkedin"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.instagram_link_show and settings.instagram_link != '' %}
+    <li class="instagram"><a href="{{ settings.instagram_link }}" title="{{ shop.name }} on Instagram" rel="me" target="_blank"><span class="icon-instagram"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.snapchat_link_show and settings.snapchat_link != '' %}
+    <li><a href="{{ settings.snapchat_link }}" title="{{ shop.name }} on Snapchat" rel="me" target="_blank"><span class="icon-snapchat"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.houzz_link_show and settings.houzz_link != '' %}
+    <li><a href="{{ settings.houzz_link }}" title="{{ shop.name }} on Houzz" rel="me" target="_blank"><span class="icon-houzz"></span></a></li>
+  {% endif %}
+
+  {% if section.settings.phone_link_show and settings.phone_link != blank %}
+    <li><a href="https://wa.me/{{ settings.phone_link }}" title="{{ shop.name }} on Whatsapp" rel="me" target="_blank" class="wpicon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+  {% endif %}
+
+  {% if section.settings.email_link_show and settings.email_link != '' %}
+    <li class="email"><a href="mailto:{{ settings.email_link }}" title="Email {{ shop.name }}" rel="me" target="_blank"><span class="icon-email"></span></a></li>
+  {% endif %}
+{% else %}
+  {% if settings.twitter_link != '' %}
+    <li class="twitter"><a href="{{ settings.twitter_link }}" title="{{ shop.name }} on Twitter" rel="me" target="_blank"><span class="icon-twitter"></span></a></li>
+  {% endif %}
+
+  {% if settings.facebook_link != '' %}
+    <li class="facebook"><a href="{{ settings.facebook_link }}" title="{{ shop.name }} on Facebook" rel="me" target="_blank"><span class="icon-facebook"></span></a></li>
+  {% endif %}
+
+  {% if settings.youtube_link != '' %}
+    <li class="youtube"><a href="{{ settings.youtube_link }}" title="{{ shop.name }} on YouTube" rel="me" target="_blank"><span class="icon-youtube"></span></a></li>
+  {% endif %}
+
+  {% if settings.vimeo_link != '' %}
+    <li class="vimeo"><a href="{{ settings.vimeo_link }}" title="{{ shop.name }} on Vimeo" rel="me" target="_blank"><span class="icon-vimeo"></span></a></li>
+  {% endif %}
+
+  {% if settings.pinterest_link != '' %}
+    <li class="pinterest"><a href="{{ settings.pinterest_link }}" title="{{ shop.name }} on Pinterest" rel="me" target="_blank"><span class="icon-pinterest"></span></a></li>
+  {% endif %}
+
+  {% if settings.tumblr_link != '' %}
+    <li class="tumblr"><a href="{{ settings.tumblr_link }}" title="{{ shop.name }} on Tumblr" rel="me" target="_blank"><span class="icon-tumblr"></span></a></li>
+  {% endif %}
+
+  {% if settings.linkedin_link != '' %}
+    <li class="linkedin"><a href="{{ settings.linkedin_link }}" title="{{ shop.name }} on LinkedIn" rel="me" target="_blank"><span class="icon-linkedin"></span></a></li>
+  {% endif %}
+
+  {% if settings.instagram_link != '' %}
+    <li class="instagram"><a href="{{ settings.instagram_link }}" title="{{ shop.name }} on Instagram" rel="me" target="_blank"><span class="icon-instagram"></span></a></li>
+  {% endif %}
+
+  {% if settings.snapchat_link != '' %}
+    <li><a href="{{ settings.snapchat_link }}" title="{{ shop.name }} on Snapchat" rel="me" target="_blank"><span class="icon-snapchat"></span></a></li>
+  {% endif %}
+
+  {% if settings.houzz_link != '' %}
+    <li><a href="{{ settings.houzz_link }}" title="{{ shop.name }} on Houzz" rel="me" target="_blank"><span class="icon-houzz"></span></a></li>
+  {% endif %}
+
+  {% if settings.phone_link != blank %}
+    <li><a href="https://wa.me/{{ settings.phone_link }}" title="{{ shop.name }} on Whatsapp" rel="me" target="_blank" class="wpicon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+  {% endif %}
+
+  {% if settings.email_link != '' %}
+    <li class="email"><a href="mailto:{{ settings.email_link }}" title="Email {{ shop.name }}" rel="me" target="_blank"><span class="icon-email"></span></a></li>
+  {% endif %}
+{% endif %}

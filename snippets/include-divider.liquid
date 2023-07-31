@@ -1,0 +1,22 @@
+{% comment %}
+** Divider - dynamic **
+- Draggable section
+{% endcomment %}
+
+{% comment %} Assign object as block or section {% endcomment %}
+{% if type == 'block' %}
+  {%- assign object = block -%}
+{% else %}
+  {%- assign object = section -%}
+{% endif %}
+
+{% comment %} Content settings {% endcomment %}
+{%- assign divider_spacing = object.settings.divider_spacing -%}
+{%- assign divider_border = object.settings.divider_border -%}
+{% comment %} End content settings {% endcomment %}
+
+<div class="container" style="padding: 0; {% if divider_mobile %}display: none;{% endif %}">
+  <div class="sixteen columns">
+    <hr class="page-divider {% if divider_border %}active-divider{% endif %}" style="{% if divider_spacing %}margin: {{ divider_spacing }}px 0px;{% endif %}">
+  </div>
+</div>

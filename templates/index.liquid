@@ -1,0 +1,16 @@
+<div class="index-sections draggable-banner--true">
+  {{ content_for_index }}
+</div>
+{% if template == "index" %}
+  <div style="display: none">
+    <div id="carousel">
+      {% include 'judgeme_widgets', widget_type: 'judgeme_featured_carousel', concierge_install: true %}
+    </div>
+  </div>
+  <script defer>
+    var wrapper = document.querySelector("#shopify-section-1625055041f1a708ae"); //example: #shopify-section-1599151540151
+    if (wrapper) {
+      wrapper.appendChild(document.querySelector("#carousel"));
+    }
+  </script>
+  {% endif %}

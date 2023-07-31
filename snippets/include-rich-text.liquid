@@ -1,0 +1,52 @@
+{% comment %}
+** Rich text - dynamic **
+- Draggable section
+{% endcomment %}
+
+{% comment %} Assign object as block or section {% endcomment %}
+{% if type == 'block' %}
+  {%- assign object = block -%}
+{% else %}
+  {%- assign object = section -%}
+{% endif %}
+
+{% comment %} Content settings {% endcomment %}
+{%- assign image = object.settings.image -%}
+{%- assign title = object.settings.title | escape -%}
+{%- assign content = object.settings.content -%}
+{% comment %} End content settings {% endcomment %}
+
+<div class="homepage_content wide_display--{{ object.settings.wide_display }} clearfix">
+  <div class="container">
+    <div class="sixteen columns">
+      <div class="section {{ object.settings.text_alignment }} clearfix">
+        {% if image != blank %}
+          <figure class="rich_text__image">
+            {% render 'image-element',
+                    image: image,
+                    alt: image.alt
+            %}
+          </figure>
+        {% endif %}
+
+        {% if title != blank %}
+          <h2 class="title">
+            {{ title }}
+          </h2>
+        {% endif %}
+
+        <div class="{{ object.settings.text_size }}">
+          {% if content != blank %}
+            {{ content }}
+          {% endif %}
+
+          {% if object.settings.button_label != blank and object.settings.button_link != blank %}
+            <a href="{{ object.settings.button_link }}">
+              {{ object.settings.button_label | escape }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

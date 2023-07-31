@@ -1,0 +1,22 @@
+{% include 'include-custom-html' %}
+
+{% schema %}
+{
+  "name": "Custom HTML",
+  "class": "html-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "custom_html",
+      "label": "HTML",
+      "default": "<div class='container'><h2 class='title'>Your own custom HTML</h2></div>"
+    }
+  ],
+  "presets": [{
+    "name": "Custom HTML",
+    "category": "Content",
+    "settings": {
+    }
+  }]
+}
+{% endschema %}

@@ -1,0 +1,334 @@
+{% comment %}
+	GEMPAGE BUILDER (https://apps.shopify.com/gempage)
+	You SHOULD NOT modify source code in this page because
+	It is automatically generated from GEMPAGE BUILDER
+	Try to edit page with the live editor.
+{% endcomment %}
+<!--GEM_HEADER-->
+<link data-instant-track rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" class="gf-style" />
+<link data-instant-track rel="stylesheet" type="text/css" href="https://d1um8515vdn9kb.cloudfront.net/files/vendor.css?refresh=1" class="gf-style" />
+<link data-instant-track rel="stylesheet" type="text/css" href="{{ 'gem-article-398594474143.css' | asset_url }}" class="gf_page_style">
+<!--GEM_HEADER_END-->
+{% paginate article.comments by 100 %}{% if article.image and section.settings.slideshow_article_enabled %}
+  <div class="banner-section dark-overlay--{{ section.settings.slideshow_post_darken }} wide_display--true">
+    <div class="banner-section__image">
+      {% render 'image-element',
+              image: article.image,
+              alt: article.image.alt
+      %}
+    </div>
+  </div>
+{% endif %}{% if section.blocks.size > 0 %}
+  {% assign sidebar = true %}
+{% else %}
+  {% assign sidebar = false %}
+{% endif %}<div class="main_content_area content container">
+  <div class="twelve columns {% if sidebar == false %}offset-by-two{% endif %}">
+      {% if section.settings.blog_breadcrumb %}
+        <div class="clearfix breadcrumb">
+          <div class="breadcrumb_text">
+            <a href="{{ shop.url }}" title="{{ shop.name | escape }}">{{ 'general.breadcrumbs.home' | t }}</a>
+            &nbsp; / &nbsp;
+            <a href="{{ blog.url }}" title="{{ blog.title | escape }}">{{ blog.title }}</a>
+            &nbsp; / &nbsp;
+            {{ article.title }}
+          </div>
+        </div>
+      {% endif %}      {% if section.settings.blog_tags %}
+        <div class="blog_meta tags {% if article.image and section.settings.slideshow_article_enabled %}right{% endif %}">
+          {% for tag in article.tags %}
+            <span><a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}" title="{{ blog.title }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}">{{ tag }}</a></span>
+          {% endfor %}
+        </div>
+      {% endif %}        <h1 class="article_name">{{ article.title }}</h1>        <p class="blog_meta">
+          {% if section.settings.blog_author %}
+            <span>{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+          {% endif %}          {% if section.settings.blog_date %}
+            <span>{{ article.published_at | date: format: "month_day_year" }}</span>
+          {% endif %}          {% if section.settings.blog_comment_count %}
+            {% if settings.disqus_enabled %}
+              <span>
+                <a href="{{ article.url }}#disqus_thread" data-disqus-identifier="{{ article.id }}" class="disqus-comment-count">{{ 'blogs.counts.comments_with_count' | t: count: 0 }}</a>
+              </span>
+            {% elsif article.comments_enabled? and article.comments_count > 0 %}
+              <span>
+                <a href="{{ article.url }}#comments">{{ 'blogs.counts.comments_with_count' | t: count: article.comments_count }}</a>
+              </span>
+            {% endif %}
+          {% endif %}
+        </p>        {% if article.image and section.settings.slideshow_article_enabled == false %}
+          {% render 'image-element',
+                  image: article.image,
+                  alt: article.image.alt
+          %}
+        {% endif %}        <!--Gem_Page_Main_Editor--><div class="clearfix"></div><div class="gryffeditor">
+<div class="gryffeditor">
+<div data-label="Text Block"> <div class="elm text-edit"><p> </p>
+<p>Everyone loves the festive season - our spirits run high and there’s cheer all around. It’s a time to be on the hunt for the perfect gift and of course, it comes with a myriad of holiday games! </p>
+<br>
+<p><span style="font-weight: 400;">If you have a large enough gathering, you can look forward to one special tradition - </span><b>playing Secret Santa.</b><span style="font-weight: 400;"> </span></p>
+<h2><span style="font-weight: 400;">Here’s How Secret Santa Works</span></h2>
+<p><span style="font-weight: 400;">A group of </span><b>people are assigned to anonymously present gifts to one another </b><span style="font-weight: 400;">a few days preceding Christmas. </span></p>
+<br>
+<p><span style="font-weight: 400;">Names are either assigned or you can pull little chits out of a basket. Some go about picking names from a Secret Santa name generator as well. </span></p>
+<br>
+<p><span style="font-weight: 400;">Then you buy a gift for the person whose name you got.</span></p>
+<br>
+<p><span style="font-weight: 400;">Then on Christmas (or at a Christmas party), when all the gifts are in place, people start guessing who their Secret Santa is. </span></p>
+<p></p>
+<br>
+<h2><span style="font-weight: 400;">Secret Santa Finds Its Roots in Benovelence</span></h2>
+<p><span style="font-weight: 400;">Now, most Christmas traditions in their current form come from the West. And to understand </span><b>the history of Secret Santa </b><span style="font-weight: 400;">we need to go back to America, 1979. </span></p>
+<br>
+<p><span style="font-weight: 400;">It’s a relatively modern invention and this particular tale begins in Kansas City. </span></p>
+<br>
+<p><b>Larry Dean Stewart</b><span style="font-weight: 400;"> had just been fired from his job. For the second time and just before Christmas no less! He sipped from his cup of coffee and lamented his situation. </span></p>
+<br>
+<p><span style="font-weight: 400;">That is when he noticed a carhop serving outside. The flimsy coat over her uniform offered her little in the way of protection from the frosty bite of the winter. </span></p>
+<br>
+<p><span style="font-weight: 400;">As Larry’s mind drifted to thoughts of those in far dire straits than he was in, he made a decision. He would do something to help. With that, he set off to wander the streets of Kansas City and donate money to people in need. </span></p>
+<br>
+<p><span style="font-weight: 400;">It was a kind gesture. And one the universe appreciated! It wasn’t long before Larry turned his life around. He entered the long-distance phone and cable industry and earned a fortune.</span></p>
+<br>
+<p><span style="font-weight: 400;">Business boomed and for close to three decades, Larry continued his philanthropy efforts.</span></p>
+<br>
+<p><span style="font-weight: 400;">It's a sweet story to remember during hard times. </span><i><span style="font-weight: 400;">Especially </span></i><span style="font-weight: 400;">during this year, when a pandemic has emerged as the great equalizer. We have all been tested - albeit, some more than others. </span></p>
+<br>
+<p><span style="font-weight: 400;">However, this is not the end of the story. In the words of Aaron Burr (and Barley Stinson!), </span><b>wait for </b><span style="font-weight: 400;">it. The history of the Secret Santa has more! </span></p>
+<p> </p>
+<h2><span style="font-weight: 400;">Secret Santa Across The Pond</span></h2>
+<p><span style="font-weight: 400;">As we mentioned, </span><b>Secret Santa as we know it today is a modern concept</b><span style="font-weight: 400;"> but there are traditions that predate it. </span></p>
+<br>
+<p><span style="font-weight: 400;">European countries have a richer and older heritage when it comes to Christmas. So their traditions of Secret Santa aren’t at all surprising.</span></p>
+<br>
+<p><span style="font-weight: 400;">Over in the UK, jolly ole’ St. Nicholas is Kris Kringle. So he very graciously lends his name to the game. For the Irish, it’s Kris Kindl, likely an adaptation of </span><i><span style="font-weight: 400;">Christkindl</span></i><span style="font-weight: 400;">, “Christ’s child.” </span></p>
+<br>
+<p><span style="font-weight: 400;">The Germans call it “Wichteln”, a word derived from “Wichtel” meaning goblin or elf. </span></p>
+<br>
+<p><span style="font-weight: 400;">Parts of the Scandinavian world refer to the custom as “</span><i><span style="font-weight: 400;">Julklapp</span></i><span style="font-weight: 400;">”. Its Secret Santa in its simplest form. All you have to do is knock on someone’s door, leave the gift outside and bolt before the person sees you! Talk about being a good Smartian. </span></p>
+<br>
+<p><span style="font-weight: 400;">New Zealand ranks amongst the youngest Secret Santa traditions we know of. For the last decade, the New Zealand Post has been running a nationwide Secret Santa game. Here, they encourage absolute strangers to exchange gifts in the post. </span></p>
+<br>
+<p><span style="font-weight: 400;">Every version of the game comes with its tweaked bits. We’ve got a history of elves and goblins, witches, a kind mortal man, and a nice state-owned postal service. </span></p>
+<br>
+<p><b>At the end of the day, you take part in spreading cheer and that is a gift in itself.</b><span style="font-weight: 400;"> This the season to be happy after all!</span></p>
+<br>
+<p><span style="font-weight: 400;">Have you ever played Secret Santa?</span></p>
+<p><span style="font-weight: 400;"> </span></p>
+<p><a href="https://studiocovers.co/products/santas-hat" target="_blank" title="santa's hat cushion by Studio Covers" rel="noopener noreferrer"><img src="https://cdn.shopify.com/s/files/1/0415/0080/3231/files/santa_hat_480x480.jpg?v=1608208720" alt="secret santa santa's hat cushion by studio covers" width="343" height="343"></a><a href="https://studiocovers.co/products/santas-hat" target="_blank" title="santa's hat cushion by Studio Covers" rel="noopener noreferrer"><br></a>Red velvet with its natural sheen and white faux fur find themselves attached to the white cotton to create a delightful Christmas experience in your living room! <a href="https://studiocovers.co/products/santas-hat" target="_blank" title="santas hat cushion by Studio Covers" rel="noopener noreferrer">Take a look at our Santa's Hat cushion here.</a></p></div></div>
+</div><div id="divContentBk"></div>
+</div><div id="divContentBk"></div><!--End_Gem_Page_Main_Editor-->        <span class="clear"></span>        {% if section.settings.display_social_buttons %}
+          <br class="clear" />
+          {% render 'social-buttons', context: 'article' %}
+          <br class="clear" />
+        {% endif %}
+        <br class="clear" />        {% if section.settings.blog_author %}
+          <hr />
+          <div class="gravatar two columns alpha center" data-email="{{ article.user.email }}">
+            <img src="//1.gravatar.com/avatar/{{ article.user.email | md5 }}?s=160&r=G" alt="{{ article.author }}" />
+          </div>
+          <div class="comment-body eight columns omega">
+            <h6>{{ article.author }}</h6>
+            <p class="meta">
+              <span class="label">{{ 'blogs.article.author' | t }}</span>
+            </p>
+            <p>
+              {{ article.user.bio }}
+            </p>
+          </div>
+        {% endif %}        <div class="clear" id="comments"></div>
+        <br class="clear" />        {% if settings.disqus_enabled %}
+          <div id="disqus_thread"></div>
+          <script>
+              var disqus_config = function () {
+                  this.page.url = "{{ canonical_url }}";
+                  this.page.identifier = "{{ article.id }}";
+              };
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//{{ settings.disqus_shortname }}.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        {% elsif blog.comments_enabled? %}
+          {% if article.comments_count > 0 %}
+            <h4>{{ 'blogs.comments.response_count' | t: count: article.comments.size }}</h4>            {% for comment in article.comments %}
+              <div id="comment-{{ comment.id }}" class="comment clearfix">
+                <div class="gravatar two columns alpha center">
+                  <img src="//1.gravatar.com/avatar/{{ comment.email | md5 }}?s=80&r=G" alt="{{ comment.author }}" />
+                </div>
+                <div class="comment-body eight columns omega">
+                  <h6>{{ comment.author }}</h6>
+                  <p class="meta">
+                    <span class="label">{{ comment.created_at | date: format: "month_day_year" }}</span>
+                  </p>                  {{ comment.content }}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}          {% if comment and comment.created_at %}
+            {% if article.comments_count == 0 %}
+              <h4>{{ 'blogs.comments.response_count' | t: count: article.comments.size }}</h4>
+            {% endif %}
+            <div id="comment-{{ comment.id }}" class="comment clearfix">
+              <div class="gravatar two columns alpha center">
+                <img src="//1.gravatar.com/avatar/{{ comment.email | md5 }}?s=80&r=G" alt="{{ comment.author }}" />
+              </div>
+              <div class="comment-body eight columns omega">
+                <h6>{{ comment.author }}</h6>
+                <p class="meta">
+                  <span class="label">{{ comment.created_at | date: format: "month_day_year" }}</span>
+                </p>                {{ comment.content }}
+              </div>
+            </div>
+          {% endif %}          {% render 'pagination',
+                  paginate: paginate,
+                  sidebar: sidebar
+          %}          <div class="clear" id="new-comment"></div>
+          <h4 class="title">{{ 'blogs.comments.title' | t }}</h4>          {% if blog.moderated? %}
+            <p><em>{{ 'blogs.comments.moderated' | t }}</em></p>
+          {% endif %}          {% form article %}
+            {% if form.posted_successfully? %}
+              {% if blog.moderated? %}
+                <p class="quote align_left">{{ 'blogs.comments.success_moderated' | t }}</p>
+              {% else %}
+                <p class="quote align_left">{{ 'blogs.comments.success' | t }}</p>
+              {% endif %}
+            {% endif %}            {% if form.errors %}
+              <p class="quote align_left">{{ 'general.forms.post_error' | t }}</p>
+            {% endif %}            <div class="six columns alpha">
+              <label for="comment_author">{{ 'blogs.comments.name' | t }} <span class="red">*</span></label>
+              <input type="text" id="comment_author" name="comment[author]" value="{{ form.author }}" required="required" />
+            </div>            <div class="six columns omega">
+              <label for="comment_email">{{ 'blogs.comments.email' | t }} <span class="red">*</span></label>
+              <input type="text" id="comment_email" name="comment[email]" value="{{ form.email }}" required="required" />
+            </div>            <label for="comment_body">{{ 'blogs.comments.comment' | t }} <span class="red">*</span></label>
+            <textarea id="comment_body" name="comment[body]" rows="5" required="required">{{ form.body }}</textarea>            <input type="submit" value="{{ 'blogs.comments.post' | t }}" id="comment-submit" class="action_button add_to_cart" />
+          {% endform %}
+        {% endif %}    {% if section.settings.blog_additional_articles and blog.articles_count > 1 %}
+      <div class="section clearfix">
+        <hr />
+        <h3>{{ 'blogs.article.additional_articles' | t: title: blog.title }}</h3>        {% assign article_found = false %}
+        {% for a in blog.articles limit: 4 %}
+          {% assign skip_article = false %}
+          {% if article_found == false and forloop.last %}
+            {% assign skip_article = true %}
+          {% endif %}
+          {% if article.id == a.id %}
+            {% assign article_found = true %}
+            {% assign skip_article = true %}
+          {% endif %}
+          {% unless skip_article %}
+            <div class="four columns {% cycle 'alpha', ' ', 'omega' %} article">
+              {% if a.image %}
+                <a href="{{ a.url }}" title="{{ a.title | escape }}">
+                  {% render 'image-element',
+                          image: a.image,
+                          alt: a.image.alt
+                  %}
+                </a>
+              {% endif %}              {% if section.settings.blog_tags %}
+                <div class="blog_meta tags">
+                  {% for tag in a.tags %}
+                    <span><a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}" title="{{ blog.title | escape }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}">{{ tag }}</a></span>
+                  {% endfor %}
+                </div>
+              {% endif %}              <h5 class="sub_title">
+                <a href="{{ a.url }}" title="{{ a.title | escape }}">{{ a.title }}</a>
+              </h5>
+              <p class="blog_meta">
+                {% if section.settings.blog_author %}
+                  <span>{{ 'blogs.article.by_author' | t: author: a.author }}</span>
+                {% endif %}                {% if section.settings.blog_date %}
+                  <span>{{ a.published_at | date: format: "month_day_year" }}</span>
+                {% endif %}                {% if settings.disqus_enabled %}
+                  <span>
+                    <a href="{{ a.url }}#disqus_thread" data-disqus-identifier="{{ a.id }}" class="disqus-comment-count">{{ 'blogs.counts.comments_with_count' | t: count: 0 }}</a>
+                  </span>
+                {% elsif a.comments_enabled? and a.comments_count > 0 %}
+                  <span>
+                    <a href="{{ a.url }}#comments">{{ 'blogs.counts.comments_with_count' | t: count: a.comments_count }}</a>
+                  </span>
+                {% endif %}
+              </p>              {% if a.excerpt != blank %}
+                {% assign postexcerpt = a.excerpt | size %}
+                  {% if postexcerpt > 100 %}
+                    {% assign excerptlength = 'lg' %}
+                  {% elsif postexcerpt <= 50 %}
+                    {% assign excerptlength = 'sm' %}
+                  {% endif %}
+                  <div class="excerpt excerpt-length--{{ excerptlength }} {{ postexcerpt }}">
+                    {{ a.excerpt }}
+                    <span class="truncation-fade"></span>
+                  </div>
+              {% endif %}
+              {% if section.settings.read_more_link %}
+                <p>
+                  <a href="{{ a.url }}" title="{{ a.title | escape }}">{{ 'blogs.general.continue_reading_html' | t }}</a>
+                </p>
+              {% endif %}
+            </div>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>  {% render 'blog-sidebar', blog_handle: blog.handle %}  <script type="text/javascript">
+    // <![CDATA[
+      $(function() {
+        if(window.location.pathname.indexOf('/comments') != -1) {
+          $('html,body').animate({scrollTop: $("#new-comment").offset().top-140},'slow');
+        }
+      });
+    // ]]>
+  </script>
+{% endpaginate %}
+</div><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "articleBody": "{{ article.content | strip_html | escape }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ shop.url }}{{ page.url }}"
+  },
+  "headline": "{{ article.title }}",
+  {% if article.excerpt != blank %}
+    "description": "{{ article.excerpt | strip_html | escape }}",
+  {% endif %}
+  {% if article.image %}
+    {% assign image_size = article.image.width | append: 'x' %}
+    "image": [
+      "https:{{ article | img_url: image_size }}"
+    ],
+  {% endif %}
+  "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+  "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+  "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ article.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    {% assign image_size = settings.og_image_fallback.width | append: 'x' %}
+    "logo": {
+      "@type": "ImageObject",
+      "height": "{{ settings.og_image_fallback.height }}",
+      "url": "https:{{ settings.og_image_fallback | img_url: image_size }}",
+      "width": "{{ settings.og_image_fallback.width }}"
+    },
+    "name": "{{ shop.name }}"
+  }
+}
+</script>
+<!--GEM_FOOTER-->
+{% capture GEM_FOOTER_SCRIPT %}
+<script data-instant-track type="text/javascript">
+	var pageLibs = [		'{{ 'gem-article-398594474143.js' | asset_url }}',	];
+</script>
+<script data-instant-track type="text/javascript">
+	var GEMVENDOR = GEMVENDOR || (function(){		var _js = {};		return {			init: function(Args) {				_js = Args;			},			getLibs: function() {				return _js;			}		};	}());	GEMVENDOR.init(pageLibs);</script>
+<script data-instant-track type="text/javascript" src="https://d1um8515vdn9kb.cloudfront.net/files/gempagev2.js?v=1.0" class="gf-script" defer></script>
+{% endcapture %}
+<!--GEM_FOOTER_END-->

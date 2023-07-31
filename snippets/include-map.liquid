@@ -1,0 +1,93 @@
+{% comment %}
+** Map - dynamic **
+- Draggable section
+{% endcomment %}
+
+{% comment %} Assign object as block or section {% endcomment %}
+{% if type == 'block' %}
+  {%- assign object = block -%}
+{% else %}
+  {%- assign object = section -%}
+{% endif %}
+
+{% comment %} Content settings {% endcomment %}
+{%- assign map_address = object.settings.map_address -%}
+{%- assign image = object.settings.image -%}
+{%- assign store_hours = object.settings.store_hours -%}
+{%- assign title = object.settings.title -%}
+{%- assign address_and_hours = object.settings.address_and_hours -%}
+{% comment %} End content settings {% endcomment %}
+
+<div class="clearfix map--container grid-layout--{% if object.settings.wide_display %}full-width{% else %}standard{% endif %} {% unless object.settings.wide_display %}container{% endunless %}">
+  <section class="featured-link--section featured-link--image section-{{ forloop.index }} {% unless object.settings.wide_display %}sixteen columns{% endunless %} map-position--{{ object.settings.map_position }}">
+    <div class="featured-link--half featured-link--image {% unless store_hours or contact_form %}full-width{% endunless %}">
+      <div class="featured-link--wrap">
+        {% if map_address != blank and object.settings.api_key != blank %}
+          {% if object.settings.api_key != blank %}
+            <div class="map maps {% if object.settings.api_key %}js-api-map{% endif %}" id="map-{{ object.id }}"
+                  data-address="{{ map_address | strip_html }}"
+                  data-zoom="{{ object.settings.zoom_level }}"
+                  data-pin="{{ object.settings.show_pin }}"
+                  data-id="map-{{ object.id }}"
+                  data-style="{{ object.settings.map_style }}"
+                  data-api-key="{{ object.settings.api_key }}"
+                  data-directions-address="{{ map_address | strip_html | handleize | replace: '_', '+' | replace: ' ', '+'}}">
+            </div>
+          {% else %}
+            <div class="maps">
+              <iframe width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if map_address != blank %}{{ map_address | strip_html | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ object.settings.zoom_level }}&amp;output=embed"></iframe>
+            </div>
+          {% endif %}
+        {% elsif map_address != blank and object.settings.api_key == blank %}
+          <div class="maps">
+            <iframe width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if map_address != blank %}{{ map_address | strip_html | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ object.settings.zoom_level }}&amp;output=embed"></iframe>
+          </div>
+        {% else %}
+          {% if image %}
+            {% render 'image-element',
+                    image: image,
+                    alt: image.alt
+            %}
+          {% else %}
+            {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+            {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    {% if store_hours %}
+      <div class="featured-link--half">
+        <div class="info text-align--{{ object.settings.text_align }}">
+          {% if title != blank %}
+            <h2 class="title">
+              {{ title | escape }}
+            </h2>
+          {% endif %}
+          {% if address_and_hours != blank %}
+            {{ address_and_hours }}
+          {% endif %}
+          {% if object.settings.button_label != blank %}
+            <br>
+            <a href="" class="js-map-link action_button">
+              {{ object.settings.button_label | escape }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% elsif contact_form %}
+      <div class="featured-link--half contact-form--half">
+        <div class="info">
+          {% render 'contact-form' %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+</div>
+
+<style>
+{% unless store_hours or contact_form %}
+  .grid-layout--standard .featured-link--half.featured-link--image {
+    width: 100%;
+  }
+{% endunless %}
+</style>

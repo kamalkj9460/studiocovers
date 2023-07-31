@@ -1,0 +1,103 @@
+{% comment %}
+** Image with text - dynamic **
+- Draggable section
+{% endcomment %}
+
+{% comment %} Assign object as block or section {% endcomment %}
+{% if type == 'block' %}
+  {%- assign object = block -%}
+{% else %}
+  {%- assign object = section -%}
+{% endif %}
+
+{% comment %} Content settings {% endcomment %}
+{%- assign image = object.settings.image -%}
+{%- assign title = object.settings.title -%}
+{%- assign text = object.settings.text -%}
+{%- assign link = object.settings.link -%}
+{%- assign button_label = object.settings.button_label -%}
+{% comment %} End content settings {% endcomment %}
+
+{% capture right_text %}
+  <div class="image-with-text block__image-with-text clearfix grid-layout--{% if object.settings.wide_display %}full-width{% else %}standard{% endif %} {% unless object.settings.wide_display %} container {% endunless %}">
+    {% unless object.settings.wide_display %}<div class="sixteen columns">{% endunless %}
+      <section class="featured-link--section featured-link--image section-{{ forloop.index }}" {{ block.shopify_attributes }}>
+        <div class="featured-link--half featured-link--image">
+          <div class="featured-link--wrap">
+            <a {% if link != blank %}href="{{ link }}"{% endif %} title="{{ title | escape }}">
+              {% if image != blank %}
+                {% render 'image-element',
+                        image: image,
+                        alt: image.alt
+                %}
+              {% else %}
+                {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+              {% endif %}
+            </a>
+          </div>
+        </div>
+        <div class="featured-link--half">
+          <div class="info text-align--{{ object.settings.text_align }}">
+            <a {% if link != blank %}href="{{ link }}"{% endif %} class="collection_title">
+              {{ title | escape }}
+            </a>
+            {% if text != blank %}
+              <div class="description">{{ text }}</div>
+            {% endif %}
+            {% if button_label != blank %}
+              <a {% if link != blank %}href="{{ link }}"{% endif %} class="action_button">
+                {{ button_label | escape }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+    {% unless object.settings.wide_display %}</div>{% endunless %}
+  </div>
+{% endcapture %}
+
+{% capture left_text %}
+  <div class="block__image-with-text clearfix grid-layout--{% if object.settings.wide_display %}full-width{% else %}standard{% endif %} {% unless object.settings.wide_display %} container {% endunless %}">
+    {% unless object.settings.wide_display %}<div class="sixteen columns">{% endunless %}
+    <section class="featured-link--section featured-link--image section-{{ forloop.index }}" {{ block.shopify_attributes }}>
+      <div class="featured-link--half">
+        <div class="info text-align--{{ object.settings.text_align }}">
+          <a {% if link != blank %}href="{{ link }}"{% endif %} class="collection_title">
+            {{ title | escape }}
+          </a>
+          {% if text != blank %}
+            <div class="description">{{ text }}</div>
+          {% endif %}
+          {% if button_label != blank %}
+            <a {% if link != blank %}href="{{ link }}"{% endif %} class="action_button">
+              {{ button_label | escape }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="featured-link--half featured-link--image">
+        <div class="featured-link--wrap">
+          <a {% if link != blank %}href="{{ link }}"{% endif %} title="{{ title | escape }}">
+            {% if image != blank %}
+              {% render 'image-element',
+                      image: image,
+                      alt: image.alt
+              %}
+            {% else %}
+              {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+              {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+            {% endif %}
+          </a>
+        </div>
+      </div>
+    </section>
+    {% unless object.settings.wide_display %}</div>{% endunless %}
+  </div>
+{% endcapture %}
+
+{% if object.settings.grid_text_position == 'right' %}
+  {{ right_text }}
+{% else %}
+  {{ left_text }}
+{% endif %}

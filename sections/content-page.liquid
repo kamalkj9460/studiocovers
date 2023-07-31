@@ -1,0 +1,44 @@
+{% comment %}
+** Page - dynamic **
+- Draggable section
+{% endcomment %}
+
+{% comment %} Content settings {% endcomment %}
+{%- assign content_page = pages[section.settings.content_page] -%}
+{% comment %} End content settings {% endcomment %}
+
+<div class="homepage_content clearfix featured-content--home">
+  <div class="container">
+    <div class="sixteen columns">
+      <div class="section clearfix">
+        {% if content_page != blank %}
+          {% render 'page-multi-column', content: content_page.content %}
+        {% else %}
+            {{ 'homepage.onboarding.no_content' | t }}
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Page",
+  "class": "featured-content-section",
+  "settings": [
+    {
+      "type": "page",
+      "id": "content_page",
+      "label": "Content page"
+    }
+  ],
+  "presets": [{
+    "name": "Page",
+    "category": "Text",
+    "settings": {
+      "content_page": ""
+    }
+  }]
+}
+{% endschema %}
